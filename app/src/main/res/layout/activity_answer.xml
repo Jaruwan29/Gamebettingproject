@@ -23,19 +23,22 @@
 
     <TextView
         android:layout_width="150dp"
-        android:id="@+id/textView"
-        tools:ignore="HardcodedText"
-        android:layout_height="100dp"
-        android:layout_marginTop="127dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="150dp"
         android:layout_height="100dp"
         android:id="@+id/textView2"
         tools:ignore="HardcodedText"
         android:layout_above="@+id/imageView8"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        tools:ignore="HardcodedText"
+        android:textColorLink="@color/colorAccent"
+        android:textSize="30sp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="99dp"
+        android:layout_above="@+id/textView2"
+        android:layout_alignRight="@+id/imageView8"
+        android:layout_alignEnd="@+id/imageView8" />
 </RelativeLayout>
