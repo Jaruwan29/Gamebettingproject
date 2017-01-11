@@ -12,15 +12,6 @@
     tools:context="rtc.thanyalak.jaruwan.gamebetting.Answer"
     android:background="@drawable/ans">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cde"
-        android:id="@+id/imageView8"
-        tools:ignore="ContentDescription"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="150dp"
         android:layout_height="100dp"
@@ -41,4 +32,13 @@
         android:layout_above="@+id/textView2"
         android:layout_alignRight="@+id/imageView8"
         android:layout_alignEnd="@+id/imageView8" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cde"
+        android:id="@+id/imageView8"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
