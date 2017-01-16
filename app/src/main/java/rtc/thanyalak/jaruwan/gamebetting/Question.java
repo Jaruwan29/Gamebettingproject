@@ -116,18 +116,28 @@ public class Question extends AppCompatActivity {
 
                 if (indexAnInt == 14 && booleen[0]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    moneyAnInt = 100000;
+                    moneyTextView.setText(Integer.toString(moneyAnInt));
                     booleen[0] = false;
                 } else if (indexAnInt == 29 && booleen[1]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    moneyAnInt = 100000;
+                    moneyTextView.setText(Integer.toString(moneyAnInt));
                     booleen[1] = false;
                 } else if (indexAnInt == 44 && booleen[2]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    moneyAnInt = 100000;
+                    moneyTextView.setText(Integer.toString(moneyAnInt));
                     booleen[2] = false;
                 } else if (indexAnInt == 59 && booleen[3]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    moneyAnInt = 100000;
+                    moneyTextView.setText(Integer.toString(moneyAnInt));
                     booleen[3] = false;
                 } else if (indexAnInt == 74 && booleen[4]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    moneyAnInt = 100000;
+                    moneyTextView.setText(Integer.toString(moneyAnInt));
                     booleen[4] = false;
                 } else if (indexAnInt == 89 && booleen[5]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
