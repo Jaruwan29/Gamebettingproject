@@ -20,7 +20,7 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(Answer.this,Question2.class));
+                startActivity(new Intent(Answer.this,EndGame.class));
             }
         });
 

@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="rtc.thanyalak.jaruwan.gamebetting.Answer"
-    android:background="@drawable/ans">
+    android:background="@drawable/answer">
 
     <TextView
         android:layout_width="150dp"

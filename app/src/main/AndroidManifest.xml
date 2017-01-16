@@ -22,34 +22,6 @@
         <activity android:name=".money3" />
         <activity android:name=".Money4" />
         <activity android:name=".Money5" />
-        <activity android:name=".Question2" />
-        <activity android:name=".Answer2" />
-        <activity android:name=".Question3" />
-        <activity android:name=".Question4" />
-        <activity android:name=".Question5" />
-        <activity android:name=".Question6" />
-        <activity android:name=".Question7" />
-        <activity android:name=".Question8" />
-        <activity android:name=".Question9" />
-        <activity android:name=".Question10" />
-        <activity android:name=".Question12" />
-        <activity android:name=".Question13" />
-        <activity android:name=".Question14" />
-        <activity android:name=".Question15" />
-        <activity android:name=".Answer3" />
-        <activity android:name=".Answer4" />
-        <activity android:name=".Answer5" />
-        <activity android:name=".Answer6" />
-        <activity android:name=".Answer7" />
-        <activity android:name=".Answer8" />
-        <activity android:name=".Answer9" />
-        <activity android:name=".Answer10" />
-        <activity android:name=".Answer11" />
-        <activity android:name=".Answer12" />
-        <activity android:name=".Answer13" />
-        <activity android:name=".Answer14" />
-        <activity android:name=".Answer15" />
-        <activity android:name=".Question11" />
         <activity android:name=".EndGame"></activity>
     </application>
 

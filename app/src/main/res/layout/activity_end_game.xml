@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_end_game"
     android:layout_width="match_parent"
@@ -8,6 +9,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="rtc.thanyalak.jaruwan.gamebetting.EndGame">
+    tools:context="rtc.thanyalak.jaruwan.gamebetting.EndGame"
+    android:background="@drawable/total">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        app:srcCompat="@drawable/quite"
+        android:id="@+id/imageView10"
+        tools:ignore="ContentDescription"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/again"
+        android:id="@+id/imageView9"
+        tools:ignore="ContentDescription"
+        android:layout_above="@+id/imageView10"
+        android:layout_alignLeft="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignRight="@+id/imageView10"
+        android:layout_alignEnd="@+id/imageView10" />
 </RelativeLayout>
