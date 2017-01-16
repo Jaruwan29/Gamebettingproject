@@ -25,6 +25,8 @@ public class Question extends AppCompatActivity {
     private MyAlert myAlert;
     private boolean[] booleen = new boolean[]{true, true, true, true, true, true};
     private int choice1AnInt, choice2AnInt, choice3AnInt, choice4AnInt;
+    private int[] answerInts;
+    private int sumChoice;
 
 
     @Override
@@ -85,6 +87,7 @@ public class Question extends AppCompatActivity {
             choice3Strings = new String[jsonArray.length()];
             choice4Strings = new String[jsonArray.length()];
             answerStrings = new String[jsonArray.length()];
+            answerInts = new int[jsonArray.length()];
 
             for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -94,7 +97,8 @@ public class Question extends AppCompatActivity {
                 choice2Strings[i] = jsonObject.getString("Choice2");
                 choice3Strings[i] = jsonObject.getString("Choice3");
                 choice4Strings[i] = jsonObject.getString("Choice4");
-                answerStrings[i] = jsonObject.getString("Answer");
+                answerStrings[i] = jsonObject.getString("Answer"); // 1,2,3,4
+                answerInts[i] = Integer.parseInt(answerStrings[i]);
 
             }   //for
 
@@ -133,6 +137,8 @@ public class Question extends AppCompatActivity {
                     myAlert.myDialog("กรอกเงินไม่ถุกต้อง", "กรุณากรอกเงินใหม่ กรอกเงินไม่ถูกต้อง");
                 } else {
 
+                    checkScore(indexAnInt);
+
                     //สิ่งที่ต้องทำ
                     indexAnInt += 1;
                     changeView(indexAnInt);
@@ -144,6 +150,32 @@ public class Question extends AppCompatActivity {
         });
 
     }
+
+    private void checkScore(int indexAnInt) {
+
+        int trueAnswer = 0;
+
+        switch (answerInts[indexAnInt]) {
+            case 1:
+                trueAnswer = choice1AnInt;
+                break;
+            case 2:
+                trueAnswer = choice2AnInt;
+                break;
+            case 3:
+                trueAnswer = choice3AnInt;
+                break;
+            case 4:
+                trueAnswer = choice4AnInt;
+                break;
+
+        }
+
+
+        moneyAnInt = moneyAnInt - (sumChoice - trueAnswer);
+        Log.d("16janV2", "current money ==> " + moneyAnInt);
+
+    }   // checkScore
 
     private boolean checkSumMoney() {
 
@@ -159,9 +191,9 @@ public class Question extends AppCompatActivity {
         Log.d("16janV2", "Choice3 ==> " + choice3AnInt);
         Log.d("16janV2", "Choice4 ==> " + choice4AnInt);
 
-        int i = choice1AnInt + choice2AnInt + choice3AnInt + choice4AnInt;
+        sumChoice = choice1AnInt + choice2AnInt + choice3AnInt + choice4AnInt;
 
-        if (i == moneyAnInt) {
+        if (sumChoice == moneyAnInt) {
             result = false;
         }
 
@@ -190,6 +222,12 @@ public class Question extends AppCompatActivity {
         choice2TextView.setText("ข. " + choice2Strings[indexAnInt]);
         choice3TextView.setText("ค. " + choice3Strings[indexAnInt]);
         choice4TextView.setText("ง. " + choice4Strings[indexAnInt]);
+
+        //Clear Edti
+        chice1EditText.setText("");
+        chice2EditText.setText("");
+        chice3EditText.setText("");
+        chice4EditText.setText("");
 
 
     }   // changeView
