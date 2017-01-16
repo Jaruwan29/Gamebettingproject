@@ -22,7 +22,8 @@
         <activity android:name=".money3" />
         <activity android:name=".Money4" />
         <activity android:name=".Money5" />
-        <activity android:name=".EndGame"></activity>
+        <activity android:name=".EndGame" />
+        <activity android:name=".ShowScore"></activity>
     </application>
 
 </manifest>
