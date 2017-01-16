@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,12 +19,18 @@ public class Question extends AppCompatActivity {
             choice3Strings, choice4Strings, answerStrings;
     private int indexAnInt = 0;
     private TextView questionTextView, choice1TextView, choice2TextView,
-            choice3TextView, choice4TextView;
+            choice3TextView, choice4TextView, moneyTextView;
+    private int moneyAnInt = 100000;
+    private EditText chice1EditText, chice2EditText, chice3EditText, chice4EditText;
+    private MyAlert myAlert;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        myAlert = new MyAlert(Question.this);
 
         //Bind Widget
         bindWidget();
@@ -48,6 +55,7 @@ public class Question extends AppCompatActivity {
         choice2TextView = (TextView) findViewById(R.id.textView7);
         choice3TextView = (TextView) findViewById(R.id.textView8);
         choice4TextView = (TextView) findViewById(R.id.textView9);
+        moneyTextView = (TextView) findViewById(R.id.textView3);
 
     }
 
@@ -96,8 +104,12 @@ public class Question extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                indexAnInt += 1;
-                changeView(indexAnInt);
+                if (indexAnInt == 14) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                } else {
+                    indexAnInt += 1;
+                    changeView(indexAnInt);
+                }
 
 
                 //startActivity(new Intent(Question.this,Answer.class));
@@ -108,6 +120,7 @@ public class Question extends AppCompatActivity {
 
     private void changeView(int indexAnInt) {
 
+        moneyTextView.setText(Integer.toString(moneyAnInt));
         questionTextView.setText(Integer.toString(indexAnInt + 1) + ". " + questionStrings[indexAnInt]);
         choice1TextView.setText("ก. " + choice1Strings[indexAnInt]);
         choice2TextView.setText("ข. " + choice2Strings[indexAnInt]);
