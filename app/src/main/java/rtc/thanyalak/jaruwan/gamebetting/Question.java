@@ -24,6 +24,7 @@ public class Question extends AppCompatActivity {
     private EditText chice1EditText, chice2EditText, chice3EditText, chice4EditText;
     private MyAlert myAlert;
     private boolean[] booleen = new boolean[]{true, true, true, true, true, true};
+    private int choice1AnInt, choice2AnInt, choice3AnInt, choice4AnInt;
 
 
     @Override
@@ -57,6 +58,10 @@ public class Question extends AppCompatActivity {
         choice3TextView = (TextView) findViewById(R.id.textView8);
         choice4TextView = (TextView) findViewById(R.id.textView9);
         moneyTextView = (TextView) findViewById(R.id.textView3);
+        chice1EditText = (EditText) findViewById(R.id.editText);
+        chice2EditText = (EditText) findViewById(R.id.editText2);
+        chice3EditText = (EditText) findViewById(R.id.editText3);
+        chice4EditText = (EditText) findViewById(R.id.editText4);
 
     }
 
@@ -123,7 +128,12 @@ public class Question extends AppCompatActivity {
                 } else if (indexAnInt == 89 && booleen[5]) {
                     myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
                     booleen[5] = false;
+                } else if (checkSumMoney()) {
+                    // กรอกเงินไม่ถูกต้อง
+                    myAlert.myDialog("กรอกเงินไม่ถุกต้อง", "กรุณากรอกเงินใหม่ กรอกเงินไม่ถูกต้อง");
                 } else {
+
+                    //สิ่งที่ต้องทำ
                     indexAnInt += 1;
                     changeView(indexAnInt);
                 }
@@ -133,6 +143,43 @@ public class Question extends AppCompatActivity {
             }   // onClick
         });
 
+    }
+
+    private boolean checkSumMoney() {
+
+        boolean result = true;
+
+        choice1AnInt = myGetFromChoice(chice1EditText.getText().toString().trim());
+        choice2AnInt = myGetFromChoice(chice2EditText.getText().toString().trim());
+        choice3AnInt = myGetFromChoice(chice3EditText.getText().toString().trim());
+        choice4AnInt = myGetFromChoice(chice4EditText.getText().toString().trim());
+
+        Log.d("16janV2", "Choice1 ==> " + choice1AnInt);
+        Log.d("16janV2", "Choice2 ==> " + choice2AnInt);
+        Log.d("16janV2", "Choice3 ==> " + choice3AnInt);
+        Log.d("16janV2", "Choice4 ==> " + choice4AnInt);
+
+        int i = choice1AnInt + choice2AnInt + choice3AnInt + choice4AnInt;
+
+        if (i == moneyAnInt) {
+            result = false;
+        }
+
+
+        return result;
+    }
+
+    private int myGetFromChoice(String strChoice) {
+
+        int intResult = 0;
+
+        try {
+            intResult = Integer.parseInt(strChoice);
+        } catch (Exception e) {
+            intResult = 0;
+        }
+
+        return intResult;
     }
 
     private void changeView(int indexAnInt) {
