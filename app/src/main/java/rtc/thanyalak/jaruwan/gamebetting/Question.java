@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,12 +19,19 @@ public class Question extends AppCompatActivity {
             choice3Strings, choice4Strings, answerStrings;
     private int indexAnInt = 0;
     private TextView questionTextView, choice1TextView, choice2TextView,
-            choice3TextView, choice4TextView;
+            choice3TextView, choice4TextView, moneyTextView;
+    private int moneyAnInt = 100000;
+    private EditText chice1EditText, chice2EditText, chice3EditText, chice4EditText;
+    private MyAlert myAlert;
+    private boolean[] booleen = new boolean[]{true, true, true, true, true, true};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        myAlert = new MyAlert(Question.this);
 
         //Bind Widget
         bindWidget();
@@ -48,6 +56,7 @@ public class Question extends AppCompatActivity {
         choice2TextView = (TextView) findViewById(R.id.textView7);
         choice3TextView = (TextView) findViewById(R.id.textView8);
         choice4TextView = (TextView) findViewById(R.id.textView9);
+        moneyTextView = (TextView) findViewById(R.id.textView3);
 
     }
 
@@ -96,8 +105,28 @@ public class Question extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                indexAnInt += 1;
-                changeView(indexAnInt);
+                if (indexAnInt == 14 && booleen[0]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[0] = false;
+                } else if (indexAnInt == 29 && booleen[1]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[1] = false;
+                } else if (indexAnInt == 44 && booleen[2]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[2] = false;
+                } else if (indexAnInt == 59 && booleen[3]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[3] = false;
+                } else if (indexAnInt == 74 && booleen[4]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[4] = false;
+                } else if (indexAnInt == 89 && booleen[5]) {
+                    myAlert.myDialog("สรุปคะแนน", "คุณมีเงินเหลือ = " + Integer.toString(moneyAnInt));
+                    booleen[5] = false;
+                } else {
+                    indexAnInt += 1;
+                    changeView(indexAnInt);
+                }
 
 
                 //startActivity(new Intent(Question.this,Answer.class));
@@ -108,6 +137,7 @@ public class Question extends AppCompatActivity {
 
     private void changeView(int indexAnInt) {
 
+        moneyTextView.setText(Integer.toString(moneyAnInt));
         questionTextView.setText(Integer.toString(indexAnInt + 1) + ". " + questionStrings[indexAnInt]);
         choice1TextView.setText("ก. " + choice1Strings[indexAnInt]);
         choice2TextView.setText("ข. " + choice2Strings[indexAnInt]);
